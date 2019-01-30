@@ -28,12 +28,9 @@ class Quotes extends Component {
   }
 }
 
-//add arguments to connect as needed
 const mapStateToProps = (state) => {
   return {
-    authors: state.authors,
-    quotes: state.quotes,
-    id: state.id
+    quotes: state.quotes
   }
 }
 

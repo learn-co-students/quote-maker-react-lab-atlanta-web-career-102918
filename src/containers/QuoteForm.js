@@ -9,7 +9,8 @@ class QuoteForm extends Component {
   state = {
     content: '',
     author: '',
-    id: uuid()
+    id: uuid(),
+    votes: 0git
   }
 
   handleOnChange = event => {
