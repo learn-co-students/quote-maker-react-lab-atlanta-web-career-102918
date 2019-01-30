@@ -2,17 +2,16 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
+import { addAuthor } from '../actions/authors'
 
 class QuoteForm extends Component {
 
   state = {
-    //set up a controlled form with internal state
     content: '',
     author: ''
   }
 
   handleOnChange = event => {
-    // Handle Updating Component State
     this.setState({
         [event.target.name]: event.target.value
      })
@@ -21,9 +20,8 @@ class QuoteForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     let quote = this.state
-    console.log(quote)
-    // Pass quote object to action creator
     this.props.dispatch(addQuote(quote))
+    this.props.dispatch(addAuthor(this.state.author))
     this.setState({  content: '', author: '' })
   }
 
@@ -73,7 +71,5 @@ class QuoteForm extends Component {
   }
 }
 
-//todo: add mapStatetoProps/MapdispatchtoProps
 
-//add arguments to connect as needed
 export default connect()(QuoteForm);
